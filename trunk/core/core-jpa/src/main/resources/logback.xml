@@ -1,0 +1,31 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="java.sql.DatabaseMetaData" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.springframework.context.support.PropertySourcesPlaceholderConfigurer" level="ERROR"/>
+    <logger name="com.mchange" level="WARN"/>
+
+
+    <!--DEBUG to log all SQL DML statements as they are executed-->
+    <!--<logger name="org.hibernate.SQL" level="DEBUG"/>-->
+
+    <!--org.hibernate.type          Log all JDBC parameters-->
+    <!--org.hibernate.tool.hbm2ddl  Log all SQL DDL statements as they are executed-->
+    <!--org.hibernate.pretty        Log the state of all entities (max 20 entities) associated with the session at flush time-->
+    <!--org.hibernate.cache         Log all second-level cache activity-->
+    <!--org.hibernate.transaction   Log transaction related activity-->
+    <!--org.hibernate.jdbc          Log all JDBC resource acquisition-->
+    <!--org.hibernate.hql.ast.AST   Log HQL and SQL ASTs during query parsing-->
+    <!--org.hibernate.secure        Log all JAAS authorization requests-->
+
+</configuration>
