@@ -39,4 +39,16 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+        <repository>
+            <id>webrunner.release</id>
+            <url>dav:https://webrunner.googlecode.com/svn/release-repository/</url>
+        </repository>
+        <snapshotRepository>
+            <id>webrunner.snapshot</id>
+            <url>dav:https://webrunner.googlecode.com/svn/snapshot-repository/</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
