@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>net.big2.webrunner</groupId>
+  <artifactId>webrunner</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20120421.124131</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20120421124131</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.1.0-20120421.124131-1</value>
+        <updated>20120421124131</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
