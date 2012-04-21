@@ -11,6 +11,12 @@
 
     <name>WebRunner - Import - Common</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/import/import-common</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/import/import-common</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/import/import-common</url>
+    </scm>
+
     <properties>
         <org.springframework.version>3.1.0.RELEASE</org.springframework.version>
     </properties>

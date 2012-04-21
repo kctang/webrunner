@@ -11,6 +11,12 @@
 
     <name>WebRunner - Core (Aggregate)</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/core</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/core</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/core</url>
+    </scm>
+
     <modules>
         <module>core-common</module>
         <module>core-jpa</module>

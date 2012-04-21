@@ -11,6 +11,12 @@
 
     <name>WebRunner - Demo (Aggregate)</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/demo</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/demo</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/demo</url>
+    </scm>
+
     <modules>
         <module>demo-jpa</module>
         <module>demo-web</module>

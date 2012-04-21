@@ -16,6 +16,12 @@
 
     <name>WebRunner - Parent - Web</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/parent/parent-web</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/parent/parent-web</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/parent/parent-web</url>
+    </scm>
+
     <properties>
         <jetty.version>7.6.2.v20120308</jetty.version>
     </properties>

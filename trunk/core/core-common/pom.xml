@@ -16,4 +16,10 @@
 
     <name>WebRunner - Core - Common</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/core/core-common</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/core/core-common</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/core/core-common</url>
+    </scm>
+
 </project>

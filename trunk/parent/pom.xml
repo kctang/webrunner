@@ -11,6 +11,12 @@
 
     <name>WebRunner - Parent (Aggregate)</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/parent</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/parent</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/parent</url>
+    </scm>
+
     <modules>
         <module>parent-default</module>
         <module>parent-web</module>

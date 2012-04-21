@@ -11,6 +11,12 @@
 
     <name>WebRunner - Import (Aggregate)</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/import</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/import</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/import</url>
+    </scm>
+
     <modules>
         <module>import-common</module>
     </modules>

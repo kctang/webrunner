@@ -16,6 +16,12 @@
 
     <name>WebRunner - Core - JPA</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/core/core-jpa</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/core/core-jpa</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/core/core-jpa</url>
+    </scm>
+
     <dependencies>
         <!--suppress MavenDuplicateDependenciesInspection -->
         <dependency>

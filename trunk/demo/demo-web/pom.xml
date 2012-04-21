@@ -17,6 +17,12 @@
 
     <name>WebRunner - Demo - Web</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/demo/demo-web</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/demo/demo-web</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/demo/demo-web</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>net.big2.webrunner.demo</groupId>

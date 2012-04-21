@@ -10,5 +10,11 @@
     <packaging>pom</packaging>
 
     <name>WebRunner - WRM (Aggregate)</name>
+
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/wrm-aggregate</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/wrm-aggregate</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/wrm-aggregate</url>
+    </scm>
     
 </project>
