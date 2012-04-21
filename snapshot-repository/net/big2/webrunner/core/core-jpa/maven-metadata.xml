@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>net.big2.webrunner.core</groupId>
+  <artifactId>core-jpa</artifactId>
+  <versioning>
+    <versions>
+      <version>0.1.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20120421123659</lastUpdated>
+  </versioning>
+</metadata>
