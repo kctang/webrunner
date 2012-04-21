@@ -17,6 +17,12 @@
 
     <name>WebRunner - Demo - JPA</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/demo/demo-jpa</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/demo/demo-jpa</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/demo/demo-jpa</url>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>net.big2.webrunner.core</groupId>

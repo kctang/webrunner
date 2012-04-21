@@ -10,6 +10,12 @@
 
     <name>WebRunner</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk</url>
+    </scm>
+
     <modules>
         <!--<module>archetype</module>-->
         <module>demo</module>
@@ -19,5 +25,23 @@
         <module>wrm</module>
         <!--<module>runner</module>-->
     </modules>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>webrunner.snapshot</id>
+            <url>dav:https://webrunner.googlecode.com/svn/snapshot-repository/</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>

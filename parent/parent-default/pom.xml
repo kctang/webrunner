@@ -11,6 +11,12 @@
 
     <name>WebRunner - Parent - Default</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/parent/parent-default</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/parent/parent-default</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/parent/parent-default</url>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 

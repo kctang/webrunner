@@ -17,4 +17,10 @@
 
     <name>WebRunner - Core - Web</name>
 
+    <scm>
+        <connection>scm:svn:http://webrunner.googlecode.com/svn/trunk/core/core-web</connection>
+        <developerConnection>scm:svn:https://webrunner.googlecode.com/svn/trunk/core/core-web</developerConnection>
+        <url>http://code.google.com/p/webrunner/source/browse/trunk/core/core-web</url>
+    </scm>
+
 </project>
