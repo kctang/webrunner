@@ -20,7 +20,6 @@
         <!--<module>archetype</module>-->
         <module>demo</module>
         <module>core</module>
-        <module>import</module>
         <module>parent</module>
         <module>wrm</module>
         <!--<module>runner</module>-->
