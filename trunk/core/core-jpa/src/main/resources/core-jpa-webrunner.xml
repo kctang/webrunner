@@ -2,22 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
 
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-       ">
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
-
-    <context:annotation-config/>
-
-    <!--suppress SpringModelInspection -->
-    <import resource="classpath*:*-context.xml"/>
 
     <!--suppress SpringModelInspection -->
     <jpa:repositories base-package="model"/>
@@ -55,21 +46,5 @@
         <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
         <property name="acquireRetryDelay" value="${jdbc.acquireRetryDelay}"/>
     </bean>
-
-    <beans profile="production">
-        <context:property-placeholder
-                location="
-                classpath*:webrunner-default.properties,
-                file:///${user.home}/.webrunner/webrunner.properties"
-                ignore-resource-not-found="true"/>
-    </beans>
-
-    <beans profile="test">
-        <context:property-placeholder
-                location="
-                webrunner-default.properties,
-                webrunner-test.properties"
-                ignore-resource-not-found="true"/>
-    </beans>
 
 </beans>

@@ -3,14 +3,12 @@ package net.big2.webrunner.core.jpa;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessResourceFailureException;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 
-@ContextConfiguration("classpath:webrunner.xml")
-@ActiveProfiles(value = "test")
+@ContextConfiguration(locations = {"classpath*:webrunner.xml"})
 public abstract class BaseJpaTest extends AbstractTransactionalJUnit4SpringContextTests {
     protected Logger log = LoggerFactory.getLogger(BaseJpaTest.class);
 
