@@ -20,8 +20,8 @@
             location="
                 classpath*:webrunner.properties,
                 classpath*:core-jpa-webrunner.properties,
+                classpath*:*-webrunner.properties,
                 classpath*:webrunner-test.properties"
             ignore-resource-not-found="true"/>
-
 
 </beans>
