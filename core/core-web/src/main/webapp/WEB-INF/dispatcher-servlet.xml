@@ -10,20 +10,13 @@
 
     <!--http://static.springsource.org/spring/docs/current/spring-framework-reference/html/mvc.html-->
     <!-- JSR-303 support will be detected on classpath and enabled automatically -->
-    <mvc:annotation-driven>
-<!--
-        <mvc:message-converters>
-            <bean class="net.big2.gae.sinisana.lib.AjaxResponseHttpMessageConverter"/>
-        </mvc:message-converters>
--->
-    </mvc:annotation-driven>
+    <mvc:annotation-driven />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--suppress SpringModelInspection -->
     <import resource="classpath*:webrunner.xml"/>
 
 </beans>

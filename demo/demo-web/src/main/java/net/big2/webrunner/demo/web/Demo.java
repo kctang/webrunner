@@ -1,4 +1,4 @@
-package net.big2.webrunner.demo.web.wrdev;
+package net.big2.webrunner.demo.web;
 
 import net.big2.webrunner.core.common.WrmConfiguration;
 import net.big2.webrunner.demo.jpa.model.Person;
