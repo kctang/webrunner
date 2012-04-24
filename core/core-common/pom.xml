@@ -22,6 +22,24 @@
         <url>http://code.google.com/p/webrunner/source/browse/trunk/core/core-common</url>
     </scm>
 
+    <dependencies>
+        <!--suppress MavenDuplicateDependenciesInspection -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!--suppress MavenDuplicateDependenciesInspection -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
     <distributionManagement>
         <repository>
             <id>webrunner-release</id>
