@@ -42,7 +42,7 @@ import static java.lang.String.format;
 
 @RequestMapping("obj")
 @Controller
-public class CrudSupportController {
+public class CrudSupportController extends BaseController {
     public static final String BASE_REQUEST_MAPPING = "obj";
 
     public static final String ATTRIBUTE_PAGE = "page";
