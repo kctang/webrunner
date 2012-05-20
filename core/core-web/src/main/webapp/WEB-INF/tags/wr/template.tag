@@ -14,7 +14,7 @@
 <jsp:doBody/>
 
 <c:if test="${debug}">
-    <jsp:include page="/WEB-INF/jsp/debug.jsp"/>
+    <jsp:include page="/WEB-INF/jsp/debug-simple.jsp"/>
 </c:if>
 </body>
 </html>

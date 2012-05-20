@@ -9,13 +9,13 @@
     <context:annotation-config/>
 
     <!-- TODO: fix - specify import twice, to overcome failed maven unit tests (class loading issues)-->
-
     <!--suppress SpringModelInspection -->
     <import resource="classpath*:core-jpa-webrunner.xml"/>
 
     <!--suppress SpringModelInspection -->
     <import resource="classpath*:*-webrunner.xml"/>
 
+    <!--TODO: add file:///${user.home}/.webrunner/webrunner.properties-->
     <context:property-placeholder
             location="
                 classpath*:webrunner.properties,
@@ -23,5 +23,10 @@
                 classpath*:*-webrunner.properties,
                 classpath*:webrunner-test.properties"
             ignore-resource-not-found="true"/>
+
+    <bean class="net.big2.webrunner.core.common.storage.LocalStorageService">
+        <constructor-arg index="0" value="${storage.directory}"/>
+        <constructor-arg index="1" value="${storage.baseUrl}"/>
+    </bean>
 
 </beans>

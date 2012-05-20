@@ -1,7 +1,8 @@
 package net.big2.webrunner.demo.jpa;
 
 
-import net.big2.webrunner.core.jpa.BaseJpaTest;
+import net.big2.webrunner.core.jpa.test.BaseJpaTest;
+import net.big2.webrunner.core.jpa.test.BaseJpaTest;
 import net.big2.webrunner.demo.jpa.model.Person;
 import net.big2.webrunner.demo.jpa.model.PersonRepository;
 import org.junit.Test;

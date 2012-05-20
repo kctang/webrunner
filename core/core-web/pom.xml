@@ -23,6 +23,17 @@
         <url>http://code.google.com/p/webrunner/source/browse/trunk/core/core-web</url>
     </scm>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.big2.webrunner.core</groupId>
+            <artifactId>core-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jmimemagic</groupId>
+            <artifactId>jmimemagic</artifactId>
+        </dependency>
+    </dependencies>
+
     <distributionManagement>
         <repository>
             <id>webrunner-release</id>
