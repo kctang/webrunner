@@ -6,7 +6,7 @@
 
     <context-param>
         <param-name>spring.profiles.active</param-name>
-        <param-value>production</param-value>
+        <param-value>jpa-web</param-value>
     </context-param>
 
     <context-param>
@@ -27,6 +27,15 @@
             <trim-directive-whitespaces>true</trim-directive-whitespaces>
         </jsp-property-group>
     </jsp-config>
+
+    <filter>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>hiddenHttpMethodFilter</filter-name>
+        <servlet-name>dispatcher</servlet-name>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>dispatcher</servlet-name>

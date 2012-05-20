@@ -28,6 +28,19 @@
             <artifactId>core-common</artifactId>
         </dependency>
 
+        <!--apache commons-->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--jackson-->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+        </dependency>
+
         <!--spring framework (web)-->
         <dependency>
             <groupId>org.springframework</groupId>

@@ -1,8 +1,8 @@
 package net.big2.webrunner.core.jpa.sample;
 
-import net.big2.webrunner.core.jpa.BaseJpaTest;
 import net.big2.webrunner.core.jpa.model.Book;
 import net.big2.webrunner.core.jpa.model.BookRepository;
+import net.big2.webrunner.core.jpa.test.BaseJpaTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
