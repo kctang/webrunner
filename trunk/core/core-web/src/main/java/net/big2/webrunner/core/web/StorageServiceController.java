@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class StorageServiceController {
+public class StorageServiceController extends BaseController {
     StorageService storageService;
 
     @Autowired
