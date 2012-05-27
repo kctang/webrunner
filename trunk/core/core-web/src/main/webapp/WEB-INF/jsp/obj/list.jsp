@@ -1,6 +1,6 @@
 <%@ taglib tagdir="/WEB-INF/tags/bootstrap" prefix="bootstrap" %>
 <%@ taglib tagdir="/WEB-INF/tags/crud" prefix="crud" %>
-<c:set var="baseUrl" value="/${context}obj" scope="page"/>
+<c:set var="baseUrl" value="${context}/obj" scope="page"/>
 <bootstrap:template1 title="${cs.name}">
     <jsp:attribute name="navbar">
         <a class="brand" href="#">Module Admin</a>

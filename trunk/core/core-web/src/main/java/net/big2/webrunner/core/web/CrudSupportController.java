@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.context.ApplicationContext;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -241,7 +242,12 @@ public class CrudSupportController extends BaseController {
         CrudSupport crudSupport = findCrudSupport(type, model);
 
         if (crudSupport.getJpaRepository().exists(id)) {
-            crudSupport.getJpaRepository().delete(id);
+            try {
+                crudSupport.getJpaRepository().delete(id);
+            } catch(DataIntegrityViolationException e) {
+                throw new CrudSupportControllerException(
+                        format("Cannot delete %s [%d] referenced by other objects", crudSupport.getName(), id), e);
+            }
 
             redirectAttributes.addFlashAttribute(ATTRIBUTE_FLASH_MESSAGE, "Deleted.");
             return "redirect:.";

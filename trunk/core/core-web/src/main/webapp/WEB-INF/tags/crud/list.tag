@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/jsp/common.jsp" %>
 <%@tag trimDirectiveWhitespaces="true" %>
 
-<c:set var="baseUrl" value="/${context}obj/${cs.slug}"/>
+<c:set var="baseUrl" value="${context}/obj/${cs.slug}"/>
 <c:if test="${!empty flashMessage}">
     <div class="alert alert-success">
         <a class="close" data-dismiss="alert" href="#">x</a>
