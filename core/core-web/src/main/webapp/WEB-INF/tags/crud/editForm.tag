@@ -55,7 +55,7 @@
 <script type="text/javascript">
     var editForm;
     $(function () {
-        var baseUrl = '/${context}obj/${cs.slug}';
+        var baseUrl = '${context}/obj/${cs.slug}';
         editForm = new CrudSupportForm('${cs.slug}', baseUrl);
     });
 </script>

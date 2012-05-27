@@ -11,8 +11,10 @@
 <%@ taglib tagdir="/WEB-INF/tags/crud" prefix="crud" %>
 
 <c:if test="${pageContext.servletContext.servletContextName eq '/'}">
+    <%--root will be ""--%>
     <c:set var="context" value=""/>
 </c:if>
 <c:if test="${pageContext.servletContext.servletContextName ne '/'}">
+    <%--non root will be like "/my-context"--%>
     <c:set var="context" value="${pageContext.servletContext.servletContextName}"/>
 </c:if>
