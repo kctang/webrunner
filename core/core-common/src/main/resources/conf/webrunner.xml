@@ -4,8 +4,10 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:cache="http://www.springframework.org/schema/cache"
 
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <!--
         - Enable annotation configuration
@@ -26,7 +28,18 @@
     -->
 
     <context:annotation-config/>
-    <cache:annotation-driven/>
+    <context:component-scan base-package="net.big2.webrunner.core.common.storage" />
+
+    <cache:annotation-driven />
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <property name="name" value="memory"/>
+                </bean>
+            </set>
+        </property>
+    </bean>
 
     <!--suppress SpringModelInspection -->
     <context:component-scan base-package="service"/>
@@ -42,21 +55,6 @@
             location="classpath*:conf/webrunner.properties,
                 classpath*:conf/*-webrunner.properties"
             ignore-resource-not-found="true" order="1000"/>
-
-    <bean class="net.big2.webrunner.core.common.storage.LocalStorageService">
-        <constructor-arg index="0" value="${storage.directory}"/>
-        <constructor-arg index="1" value="${storage.baseUrl}"/>
-    </bean>
-
-    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
-        <property name="caches">
-            <set>
-                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
-                    <property name="name" value="memory"/>
-           </bean>
-            </set>
-        </property>
-    </bean>
 
     <beans profile="test">
         <import resource="classpath*:conf/*-webrunner-test.xml"/>
