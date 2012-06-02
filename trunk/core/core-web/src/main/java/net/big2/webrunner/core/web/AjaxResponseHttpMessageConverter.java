@@ -1,7 +1,10 @@
 package net.big2.webrunner.core.web;
 
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpOutputMessage;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.validation.BindingResult;
@@ -12,6 +15,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class AjaxResponseHttpMessageConverter extends MappingJacksonHttpMessageConverter {
+    protected Logger log = LoggerFactory.getLogger(AjaxResponseHttpMessageConverter.class);
+
     @Override
     protected void writeInternal(Object o, HttpOutputMessage outputMessage) throws IOException, HttpMessageNotWritableException {
         if (o instanceof AjaxResponse) {
@@ -43,6 +48,16 @@ public class AjaxResponseHttpMessageConverter extends MappingJacksonHttpMessageC
         } else {
             AjaxResponse response = new AjaxResponse(o);
             super.writeInternal(response, outputMessage);
+        }
+    }
+
+    @Override
+    public boolean canWrite(Class<?> clazz, MediaType mediaType) {
+        if (byte[].class.isAssignableFrom(clazz)) {
+            // do not handle byte[]
+            return false;
+        } else {
+            return super.canWrite(clazz, mediaType);
         }
     }
 }
