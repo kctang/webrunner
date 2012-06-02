@@ -44,7 +44,7 @@ public class Field {
     public static String extractFieldName(String fieldName) {
         String extractedFieldName = fieldName;
         if (extractedFieldName.contains(":")) {
-            // strip prefix "file:"
+            // strip prefix i.e. "file:"
             extractedFieldName = extractedFieldName.substring(extractedFieldName.indexOf(":") + 1);
 
             if (extractedFieldName.contains(":")) {

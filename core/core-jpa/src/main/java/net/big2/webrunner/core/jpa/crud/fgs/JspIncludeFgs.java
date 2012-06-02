@@ -6,7 +6,8 @@ import net.big2.webrunner.core.jpa.crud.Field;
 /**
  * // TODO: change this to a PrefixFgs
  *
- * Generates a field based on specified prefix. Supported prefixes are based on Field.Type enum.
+ * Generates a field based on specified prefix. Supported prefixes are based on
+ * Field.Type enum.
  */
 public class JspIncludeFgs extends AbstractFieldGenerationStrategy {
     public static final String PREFIX_JSP = "jsp:";

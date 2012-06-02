@@ -1,6 +1,8 @@
 package net.big2.webrunner.core.common.storage;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.io.*;
 
@@ -17,6 +19,7 @@ public class LocalStorageService implements StorageService {
         this.baseUrl = baseUrl;
     }
 
+    @CacheEvict(value = "memory", allEntries = true)
     @Override
     public void store(String type, String id, byte[] data) throws StorageServiceException {
         OutputStream out = null;
@@ -39,6 +42,7 @@ public class LocalStorageService implements StorageService {
         }
     }
 
+    @Cacheable(value = "memory")
     @Override
     public byte[] load(String type, String id) throws StorageServiceException {
         InputStream in = null;
@@ -57,6 +61,7 @@ public class LocalStorageService implements StorageService {
         }
     }
 
+    @CacheEvict(value = "memory", allEntries = true)
     @Override
     public void delete(String type, String id) throws StorageServiceException {
         String filename = getFilename(type, id);
