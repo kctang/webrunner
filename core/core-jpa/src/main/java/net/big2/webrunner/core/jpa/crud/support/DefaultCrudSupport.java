@@ -147,25 +147,11 @@ public class DefaultCrudSupport<T extends CrudEntity> implements CrudSupport<T> 
         }
     }
 
-    /**
-     * This method always return null (no items data). Override as needed.
-     *
-     * @param field
-     * @param crudEntity
-     * @return
-     */
     @Override
     public Object loadNewItems(Field field, T crudEntity, Model model) {
         return loadItems(field, crudEntity, newFieldMap, model);
     }
 
-    /**
-     * This method always return null (no items data). Override as needed.
-     *
-     * @param field
-     * @param crudEntity
-     * @return
-     */
     @Override
     public Object loadEditItems(Field field, T crudEntity, Model model) {
         return loadItems(field, crudEntity, editFieldMap, model);

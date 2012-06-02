@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--
+    - Enable annotation configuration
+    - Scans base packages "service", "controller" for component annotated beans
+    - Loads "conf/*-webrunner.xml" in classpath as spring configurations
+    - Loads "conf/*-webrunner-test.xml" in classpath as spring configurations for "test" profile
+    - Load property files for "test" profile in this sequence:
+        - conf/webrunner.properties
+        - conf/*-webrunner.properties
+        - conf/*-webrunner-test.properties
+    - Load property files for "production" profile in this sequence:
+        - conf/webrunner.properties
+        - conf/*-webrunner.properties
+        - ${user.home}/.webrunner/webrunner.properties
+    - Provides these beans:
+        - StorageService
+
+-->
+
+    <context:annotation-config/>
+
+    <!--suppress SpringModelInspection -->
+    <context:component-scan base-package="service"/>
+
+    <!--suppress SpringModelInspection -->
+    <context:component-scan base-package="controller"/>
+
+    <!--suppress SpringModelInspection -->
+    <import resource="classpath*:conf/*-webrunner.xml"/>
+
+    <!--suppress SpringModelInspection -->
+    <context:property-placeholder
+            location="classpath*:conf/webrunner.properties,
+                classpath*:conf/*-webrunner.properties"
+            ignore-resource-not-found="true" order="1000"/>
+
+    <bean class="net.big2.webrunner.core.common.storage.LocalStorageService">
+        <constructor-arg index="0" value="${storage.directory}"/>
+        <constructor-arg index="1" value="${storage.baseUrl}"/>
+    </bean>
+
+    <beans profile="test">
+        <import resource="classpath*:conf/*-webrunner-test.xml"/>
+
+        <context:property-placeholder
+                location="classpath*:conf/webrunner.properties,
+                classpath*:conf/*-webrunner.properties,
+                classpath*:conf/*-webrunner-test.properties"
+                ignore-resource-not-found="true" order="100"/>
+    </beans>
+
+    <beans profile="production">
+        <context:property-placeholder
+                location="classpath*:conf/webrunner.properties,
+                classpath*:conf/*-webrunner.properties,
+                file:///${user.home}/.webrunner/webrunner.properties"
+                ignore-resource-not-found="true" order="10"/>
+    </beans>
+</beans>

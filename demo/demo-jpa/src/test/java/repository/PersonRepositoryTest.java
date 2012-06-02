@@ -1,10 +1,10 @@
-package net.big2.webrunner.demo.jpa;
+package repository;
 
 
 import net.big2.webrunner.core.jpa.test.BaseJpaTest;
-import net.big2.webrunner.core.jpa.test.BaseJpaTest;
-import net.big2.webrunner.demo.jpa.model.Person;
-import net.big2.webrunner.demo.jpa.model.PersonRepository;
+import model.Person;
+import org.springframework.context.annotation.PropertySource;
+import repository.PersonRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -13,7 +13,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@ContextConfiguration(locations = {"classpath*:webrunner.xml"})
 public class PersonRepositoryTest extends BaseJpaTest {
     @Autowired
     PersonRepository personRepository;

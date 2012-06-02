@@ -28,7 +28,7 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <array>
-                <value>messages</value>
+                <!--<value>messages</value>-->
                 <value>messages-webrunner</value>
             </array>
         </property>
@@ -44,6 +44,6 @@
 
     <context:component-scan base-package="net.big2.webrunner.core.web"/>
 
-    <import resource="classpath*:webrunner.xml"/>
+    <import resource="classpath*:conf/webrunner.xml"/>
 
 </beans>

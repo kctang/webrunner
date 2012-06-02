@@ -244,7 +244,7 @@ public class CrudSupportController extends BaseController {
         if (crudSupport.getJpaRepository().exists(id)) {
             try {
                 crudSupport.getJpaRepository().delete(id);
-            } catch(DataIntegrityViolationException e) {
+            } catch (DataIntegrityViolationException e) {
                 throw new CrudSupportControllerException(
                         format("Cannot delete %s [%d] referenced by other objects", crudSupport.getName(), id), e);
             }
@@ -305,6 +305,15 @@ public class CrudSupportController extends BaseController {
             String[] editFields() default {};
         }
 */
+        String parent;
+        if (applicationContext.getParent() == null) {
+            parent = "n/a";
+        } else {
+            parent = applicationContext.getParent().getDisplayName();
+        }
+        log.debug(format(
+                "CrudSupport initialization in context [displayName: %s, id: %s, parent: %s]",
+                applicationContext.getDisplayName(), applicationContext.getId(), parent));
 
         // register all CrudSupport beans to crudSupportMap
         if (applicationContext != null) {
@@ -411,7 +420,7 @@ public class CrudSupportController extends BaseController {
 
         // TODO: optimize
         // convert "product/delete/thumbnail" to "product"
-        if (retVal!=null && retVal.contains("/")) {
+        if (retVal != null && retVal.contains("/")) {
             retVal = retVal.substring(0, retVal.indexOf('/'));
         }
 
