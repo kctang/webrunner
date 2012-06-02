@@ -26,6 +26,7 @@ public class LocalStorageService implements StorageService {
         this.baseUrl = baseUrl;
     }
 
+    @CacheEvict(value = "memory", allEntries = true)
     @Override
     public void store(String type, String id, byte[] data) throws StorageServiceException {
         OutputStream out = null;
@@ -67,6 +68,7 @@ public class LocalStorageService implements StorageService {
         }
     }
 
+    @CacheEvict(value = "memory", allEntries = true)
     @Override
     public void delete(String type, String id) throws StorageServiceException {
         String filename = getFilename(type, id);
