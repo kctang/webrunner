@@ -61,6 +61,10 @@
             <artifactId>jsp-api</artifactId>
         </dependency>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
             <artifactId>standard</artifactId>
             <groupId>taglibs</groupId>
             <type>jar</type>

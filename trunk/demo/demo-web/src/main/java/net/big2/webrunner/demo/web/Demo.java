@@ -1,8 +1,8 @@
 package net.big2.webrunner.demo.web;
 
 import net.big2.webrunner.core.common.WrmConfiguration;
-import net.big2.webrunner.demo.jpa.model.Person;
-import net.big2.webrunner.demo.jpa.model.PersonRepository;
+import model.Person;
+import repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;

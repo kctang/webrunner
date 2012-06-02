@@ -1,4 +1,4 @@
-package net.big2.webrunner.demo.jpa.model;
+package model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

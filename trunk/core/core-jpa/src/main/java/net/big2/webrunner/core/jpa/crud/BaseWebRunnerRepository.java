@@ -11,9 +11,9 @@ public abstract class BaseWebRunnerRepository<T extends CrudEntity> implements W
     @Autowired
     protected ApplicationContext context;
 
-    private JpaRepository<T, Long> jpaRepository = null;
+    protected JpaRepository<T, Long> jpaRepository = null;
 
-    JpaRepository<T, Long> getJpaRepository() {
+    public JpaRepository<T, Long> getJpaRepository() {
         // this cannot be autowired due to cyclic dependency, hence this init
         if (jpaRepository == null) {
             // TODO: do proper class to repository name conversion

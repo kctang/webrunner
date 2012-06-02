@@ -8,6 +8,7 @@ import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.AfterTransaction;
@@ -16,7 +17,9 @@ import org.springframework.test.context.transaction.BeforeTransaction;
 import static java.lang.String.format;
 import static org.junit.Assert.*;
 
-@ContextConfiguration(locations = {"classpath*:webrunner.xml"})
+
+@ContextConfiguration(locations = {"classpath*:conf/webrunner.xml"})
+@ActiveProfiles("test")
 public abstract class BaseJpaTest extends AbstractTransactionalJUnit4SpringContextTests {
     protected Logger log = LoggerFactory.getLogger(BaseJpaTest.class);
 

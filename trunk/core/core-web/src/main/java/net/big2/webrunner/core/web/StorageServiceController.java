@@ -3,6 +3,8 @@ package net.big2.webrunner.core.web;
 import net.big2.webrunner.core.common.storage.StorageService;
 import net.big2.webrunner.core.common.storage.StorageServiceException;
 import net.sf.jmimemagic.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class StorageServiceController extends BaseController {
+    private Logger log = LoggerFactory.getLogger(StorageServiceController.class);
+
     StorageService storageService;
 
     @Autowired
@@ -32,12 +36,16 @@ public class StorageServiceController extends BaseController {
         try {
             MagicMatch match = Magic.getMagicMatch(data);
             mimeType = match.getMimeType();
+            log.debug("Serving data as %s", mimeType);
         } catch (MagicParseException e) {
             mimeType = "application/octet-stream";
+            log.debug("Serving data as %s (fallback)", mimeType);
         } catch (MagicMatchNotFoundException e) {
             mimeType = "application/octet-stream";
+            log.debug("Serving data as %s (fallback)", mimeType);
         } catch (MagicException e) {
             mimeType = "application/octet-stream";
+            log.debug("Serving data as %s (fallback)", mimeType);
         }
 
         HttpHeaders headers = new HttpHeaders();

@@ -4,7 +4,12 @@
 
 <div class="page-header">
     <h1>Edit - ${cs.name}</h1>
-    <span class="label pull-right">Modified: ${entity.modifiedDate}</span>
+    <spring:eval
+            var="isTimestampSupportEntity"
+            expression="entity instanceof T(net.big2.webrunner.core.jpa.crud.TimestampSupportEntity)"/>
+    <c:if test="${isTimestampSupportEntity}">
+        <span class="label pull-right">Modified: ${entity.modifiedDate}</span>
+    </c:if>
 </div>
 
 <form:form enctype="multipart/form-data" method="post" modelAttribute="entity" cssClass="form-horizontal"

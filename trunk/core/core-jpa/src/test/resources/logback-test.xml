@@ -9,7 +9,7 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <!--useful logger (do not edit)-->
+    <!--display spring configuration/properties information - useful, do not remove)-->
     <logger name="org.springframework.beans.factory.xml.XmlBeanDefinitionReader" level="INFO" />
     <logger name="org.springframework.context.support.PropertySourcesPlaceholderConfigurer" level="INFO"/>
 
