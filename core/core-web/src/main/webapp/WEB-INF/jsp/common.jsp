@@ -10,11 +10,11 @@
 <%@ taglib tagdir="/WEB-INF/tags/bootstrap" prefix="bootstrap" %>
 <%@ taglib tagdir="/WEB-INF/tags/crud" prefix="crud" %>
 
-<c:if test="${pageContext.servletContext.servletContextName eq '/'}">
+<c:if test="${pageContext.request.contextPath eq '/'}">
     <%--root will be ""--%>
     <c:set var="context" value=""/>
 </c:if>
-<c:if test="${pageContext.servletContext.servletContextName ne '/'}">
+<c:if test="${pageContext.request.contextPath ne '/'}">
     <%--non root will be like "/my-context"--%>
-    <c:set var="context" value="${pageContext.servletContext.servletContextName}"/>
+    <c:set var="context" value="${pageContext.request.contextPath}"/>
 </c:if>
