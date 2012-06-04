@@ -11,7 +11,9 @@
     <!-- JSR-303 support will be detected on classpath and enabled automatically -->
     <mvc:annotation-driven>
         <mvc:message-converters>
-            <bean class="net.big2.webrunner.core.web.AjaxResponseHttpMessageConverter"/>
+            <bean class="net.big2.webrunner.core.web.AjaxResponseHttpMessageConverter">
+                <property name="objectMapper" ref="objectMapper"/>
+            </bean>
         </mvc:message-converters>
         <mvc:argument-resolvers>
             <bean class="org.springframework.data.web.PageableArgumentResolver"/>
@@ -19,6 +21,8 @@
     </mvc:annotation-driven>
 
     <mvc:default-servlet-handler/>
+
+    <bean id="objectMapper" class="net.big2.webrunner.core.common.WebRunnerObjectMapper" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

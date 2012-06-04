@@ -23,6 +23,12 @@
     </scm>
 
     <dependencies>
+        <!--jackson-->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+        </dependency>
+
         <!--suppress MavenDuplicateDependenciesInspection -->
         <dependency>
             <groupId>org.springframework</groupId>
