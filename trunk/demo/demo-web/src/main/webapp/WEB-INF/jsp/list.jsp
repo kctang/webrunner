@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<%--@elvariable id="personList" type="java.util.List<model.Person>"--%>
+<%--@elvariable id="personList" type="java.util.List<model.demo.jpa.Person>"--%>
 <c:forEach items="${personList}" var="person">
     ${person.name}<br/>
 </c:forEach>
