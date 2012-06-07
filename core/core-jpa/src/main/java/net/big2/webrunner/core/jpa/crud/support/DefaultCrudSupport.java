@@ -30,6 +30,7 @@ public class DefaultCrudSupport<T extends CrudEntity> implements CrudSupport<T> 
     @Autowired
     protected ApplicationContext applicationContext;
 
+    protected boolean visible;
     protected Class<T> crudEntityClass;
     protected String slug;
     protected String name;
@@ -49,6 +50,7 @@ public class DefaultCrudSupport<T extends CrudEntity> implements CrudSupport<T> 
     public static final String DEFAULT_TEMPLATE_PATH = "obj/";
 
     /**
+     *
      * @param crudEntityClass
      * @param jpaRepository
      * @param fieldGenerator
@@ -56,6 +58,7 @@ public class DefaultCrudSupport<T extends CrudEntity> implements CrudSupport<T> 
     public DefaultCrudSupport(
             Class<T> crudEntityClass, JpaRepository<T, Long> jpaRepository,
             FieldGenerator fieldGenerator) {
+        this.visible = true;
         this.crudEntityClass = crudEntityClass;
         this.jpaRepository = jpaRepository;
         this.fieldGenerator = fieldGenerator;
@@ -126,6 +129,16 @@ public class DefaultCrudSupport<T extends CrudEntity> implements CrudSupport<T> 
     @Override
     public boolean onNewSave(T t, BindingResult result, MultipartRequest request) throws CrudSupportException {
         return true;
+    }
+
+    @Override
+    public void postEditSave(T t, MultipartRequest request) throws CrudSupportException {
+        // do nothing
+    }
+
+    @Override
+    public void postNewSave(T t, MultipartRequest request) throws CrudSupportException {
+        // do nothing
     }
 
     @Override
@@ -346,4 +359,11 @@ public class DefaultCrudSupport<T extends CrudEntity> implements CrudSupport<T> 
         this.listFieldMap = listFieldMap;
     }
 
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
 }

@@ -17,6 +17,8 @@ import java.util.Map;
  * @param <T>
  */
 public interface CrudSupport<T extends CrudEntity> {
+    boolean isVisible();
+
     Class<T> getCrudEntityClass();
 
     /**
@@ -81,6 +83,10 @@ public interface CrudSupport<T extends CrudEntity> {
     boolean onEditSave(T t, BindingResult result, MultipartRequest request) throws CrudSupportException;
 
     boolean onNewSave(T t, BindingResult result, MultipartRequest request) throws CrudSupportException;
+    
+    void postEditSave(T t, MultipartRequest request) throws CrudSupportException;
+
+    void postNewSave(T t, MultipartRequest request) throws CrudSupportException;
 
     /**
      * // TODO: javadoc why can return null
@@ -98,5 +104,5 @@ public interface CrudSupport<T extends CrudEntity> {
      * @param crudEntity
      * @return
      */
-    Object loadEditItems(Field field, T crudEntity, Model model);
+    Object  loadEditItems(Field field, T crudEntity, Model model);
 }
