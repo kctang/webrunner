@@ -59,6 +59,7 @@ public class CrudSupportController extends BaseController {
 
     protected Logger log = LoggerFactory.getLogger(CrudSupportController.class);
     protected Map<String, CrudSupport> crudSupportMap;
+    protected Map<String, CrudSupport> visibleCrudSupportMap;
 
     protected StorageService storageService;
     protected ApplicationContext applicationContext;
@@ -76,7 +77,7 @@ public class CrudSupportController extends BaseController {
         SerializationConfig serializationConfig = mapper.getSerializationConfig();
         serializationConfig.addMixInAnnotations(CrudSupport.class,
                 CrudSupportMixin.class);
-        return mapper.writeValueAsString(new AjaxResponse(crudSupportMap));
+        return mapper.writeValueAsString(new AjaxResponse(visibleCrudSupportMap));
     }
 
     @SuppressWarnings("UnusedDeclaration")
@@ -186,9 +187,12 @@ public class CrudSupportController extends BaseController {
 
         if (!result.hasErrors() && crudSupport.onEditSave(crudEntity, result, request)) {
             crudEntity = (CrudEntity) crudSupport.getJpaRepository().save(crudEntity);
+
+            crudSupport.postEditSave(crudEntity, request);
+            
             // set entity again, might be different object after save (just in case)
             model.addAttribute(ATTRIBUTE_ENTITY, crudEntity);
-
+            
             redirectAttributes.addFlashAttribute(ATTRIBUTE_FLASH_MESSAGE, "Saved.");
             return "redirect:../{type}";
 
@@ -223,6 +227,9 @@ public class CrudSupportController extends BaseController {
 
         if (!result.hasErrors() && crudSupport.onNewSave(crudEntity, result, request)) {
             crudEntity = (CrudEntity) crudSupport.getJpaRepository().save(crudEntity);
+
+            crudSupport.postNewSave(crudEntity, request);
+
             // set entity again, might be different object after save (just in case)
             model.addAttribute(ATTRIBUTE_ENTITY, crudEntity);
 
@@ -294,6 +301,7 @@ public class CrudSupportController extends BaseController {
     @PostConstruct
     public void init() throws CrudSupportControllerException {
         crudSupportMap = new TreeMap<String, CrudSupport>();
+        visibleCrudSupportMap = new TreeMap<String, CrudSupport>();
 
         // TODO: remove need to create *CrudSupport with @CrudSupport(listFields="", newFields="", editFields="")
 /*
@@ -323,6 +331,9 @@ public class CrudSupportController extends BaseController {
                 CrudSupport crudSupport = crudSupportBeanMap.get(key);
                 crudSupportMap.put(crudSupport.getSlug(), crudSupport);
                 log.debug(format("Registering CrudSupport [%s]", crudSupport.getSlug()));
+                if (crudSupport.isVisible()) {
+                    visibleCrudSupportMap.put(crudSupport.getSlug(), crudSupport);
+                }
             }
         }
     }
