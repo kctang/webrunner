@@ -41,6 +41,29 @@
             <artifactId>jackson-mapper-asl</artifactId>
         </dependency>
 
+        <!--spring security-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+        <!--spring security: fix wrong dependencies pulled in by spring security-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+
         <!--spring framework (web)-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -67,15 +90,15 @@
             <artifactId>jstl</artifactId>
             <scope>runtime</scope>
         </dependency>
-<!--
-        TODO: remove if not needed by Tomcat 7...
-        <dependency>
-            <artifactId>standard</artifactId>
-            <groupId>taglibs</groupId>
-            <type>jar</type>
-            <scope>runtime</scope>
-        </dependency>
--->
+        <!--
+                TODO: remove if not needed by Tomcat 7...
+                <dependency>
+                    <artifactId>standard</artifactId>
+                    <groupId>taglibs</groupId>
+                    <type>jar</type>
+                    <scope>runtime</scope>
+                </dependency>
+        -->
 
         <!--selenium tests-->
         <dependency>
