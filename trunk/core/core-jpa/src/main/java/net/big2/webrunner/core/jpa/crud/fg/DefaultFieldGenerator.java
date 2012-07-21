@@ -27,6 +27,7 @@ public class DefaultFieldGenerator implements FieldGenerator {
                 new TextareaFgs(),
                 new PrimitiveTypeFgs(),
                 new SelectFgs(),
+                new PasswordFgs(),
                 new FallbackFgs()
         ));
     }

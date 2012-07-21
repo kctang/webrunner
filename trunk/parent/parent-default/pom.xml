@@ -24,8 +24,9 @@
         <jetty.version>7.6.2.v20120308</jetty.version>
         <org.hibernate.version>4.1.4.Final</org.hibernate.version>
         <org.hibernate.validator.version>4.3.0.Final</org.hibernate.validator.version>
-        <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
         <org.slf4j.version>1.6.5</org.slf4j.version>
+        <org.springframework.version>3.1.1.RELEASE</org.springframework.version>
+        <org.springframework.security.version>3.1.0.RELEASE</org.springframework.security.version>
         <net.big2.webrunner.version>0.1.0-SNAPSHOT</net.big2.webrunner.version>
     </properties>
 
@@ -215,6 +216,18 @@
                 <version>12.0</version>
             </dependency>
 
+            <!--java mail/activation-->
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.5</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+
             <!--apache commons-->
             <dependency>
                 <groupId>commons-beanutils</groupId>
@@ -253,6 +266,38 @@
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
                 <version>1.1.0.RELEASE</version>
+            </dependency>
+
+            <!--spring security-->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>${org.springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${org.springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${org.springframework.security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${org.springframework.version}</version>
             </dependency>
 
             <!--spring framework-->

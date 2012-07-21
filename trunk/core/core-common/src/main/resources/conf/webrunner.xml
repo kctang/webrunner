@@ -9,28 +9,15 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <!--
-        - Enable annotation configuration
-        - Scans base packages "service", "controller" for component annotated beans
-        - Loads "conf/*-webrunner.xml" in classpath as spring configurations
-        - Loads "conf/*-webrunner-test.xml" in classpath as spring configurations for "test" profile
-        - Load property files for "test" profile in this sequence:
-            - conf/webrunner.properties
-            - conf/*-webrunner.properties
-            - conf/*-webrunner-test.properties
-        - Load property files for "production" profile in this sequence:
-            - conf/webrunner.properties
-            - conf/*-webrunner.properties
-            - ${user.home}/.webrunner/webrunner.properties
-        - Provides these beans:
-            - StorageService
-
-    -->
-
     <context:annotation-config/>
-    <context:component-scan base-package="net.big2.webrunner.core.common.storage" />
+    <context:component-scan base-package="net.big2.webrunner.core.common.storage"/>
 
-    <cache:annotation-driven />
+    <!--suppress SpringModelInspection -->
+    <context:component-scan base-package="service">
+        <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
+    </context:component-scan>
+
+    <cache:annotation-driven/>
     <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
         <property name="caches">
             <set>
@@ -42,12 +29,6 @@
     </bean>
 
     <!--suppress SpringModelInspection -->
-    <context:component-scan base-package="service"/>
-
-    <!--suppress SpringModelInspection -->
-    <context:component-scan base-package="controller"/>
-
-    <!--suppress SpringModelInspection -->
     <import resource="classpath*:conf/*-webrunner.xml"/>
 
     <!--suppress SpringModelInspection -->
@@ -57,8 +38,10 @@
             ignore-resource-not-found="true" order="1000"/>
 
     <beans profile="test">
+        <!--suppress SpringModelInspection -->
         <import resource="classpath*:conf/*-webrunner-test.xml"/>
 
+        <!--suppress SpringModelInspection -->
         <context:property-placeholder
                 location="classpath*:conf/webrunner.properties,
                 classpath*:conf/*-webrunner.properties,

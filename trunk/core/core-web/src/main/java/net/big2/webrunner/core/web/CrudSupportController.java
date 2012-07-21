@@ -40,6 +40,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static java.lang.String.format;
+import static org.springframework.beans.factory.BeanFactoryUtils.beansOfTypeIncludingAncestors;
 
 @RequestMapping("obj")
 @Controller
@@ -189,10 +190,10 @@ public class CrudSupportController extends BaseController {
             crudEntity = (CrudEntity) crudSupport.getJpaRepository().save(crudEntity);
 
             crudSupport.postEditSave(crudEntity, request);
-            
+
             // set entity again, might be different object after save (just in case)
             model.addAttribute(ATTRIBUTE_ENTITY, crudEntity);
-            
+
             redirectAttributes.addFlashAttribute(ATTRIBUTE_FLASH_MESSAGE, "Saved.");
             return "redirect:../{type}";
 
@@ -313,6 +314,7 @@ public class CrudSupportController extends BaseController {
             String[] editFields() default {};
         }
 */
+
         String parent;
         if (applicationContext.getParent() == null) {
             parent = "n/a";
@@ -325,7 +327,7 @@ public class CrudSupportController extends BaseController {
 
         // register all CrudSupport beans to crudSupportMap
         if (applicationContext != null) {
-            Map<String, CrudSupport> crudSupportBeanMap = applicationContext.getBeansOfType(CrudSupport.class);
+            Map<String, CrudSupport> crudSupportBeanMap = beansOfTypeIncludingAncestors(applicationContext, CrudSupport.class);
 
             for (String key : crudSupportBeanMap.keySet()) {
                 CrudSupport crudSupport = crudSupportBeanMap.get(key);
