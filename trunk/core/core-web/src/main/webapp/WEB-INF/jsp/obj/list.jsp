@@ -10,7 +10,7 @@
             <script type="text/javascript">
                 $(function () {
                     var list = $('ul#sidebarList');
-                    $.getJSON('${baseUrl}', function (json) {
+                    $.getJSON('${baseUrl}/api/list', function (json) {
                         for (var key in json.data) {
                             var item = json.data[key];
                             list.append('<li><a href="${baseUrl}/' + item.slug + '">' + item.name + '</a></li>');

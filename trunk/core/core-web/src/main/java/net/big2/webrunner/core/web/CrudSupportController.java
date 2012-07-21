@@ -71,7 +71,7 @@ public class CrudSupportController extends BaseController {
         this.storageService = storageService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "api/list", method = RequestMethod.GET)
     @ResponseBody
     public String listCrudSupport() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
