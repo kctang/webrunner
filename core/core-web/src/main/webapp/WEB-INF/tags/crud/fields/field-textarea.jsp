@@ -1,6 +1,8 @@
 <%--@elvariable id="field" type="net.big2.webrunner.core.jpa.crud.Field"--%>
 <c:set var="field" value="${fieldMap[name]}" />
-<div class="control-group">
+<c:set var="hasFieldError"><form:errors path="${name}"/></c:set>
+<c:set var="fieldClass"><c:if test="${not empty hasFieldError}">error</c:if></c:set>
+<div class="control-group ${fieldClass}">
     <label class="control-label" for="${name}">${field.label}</label>
     <div class="controls">
         <form:textarea path="${name}" id="${name}" cols="${field.cols}" rows="${field.rows}"/>
