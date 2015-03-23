@@ -1,0 +1,1 @@
+This was the base/template I used in ~ 2012 to create Java based web applications. It has not been updated since so frameworks and libraries used are outdated.
